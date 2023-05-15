@@ -9,5 +9,5 @@ pub struct Archive {
     encryption: String,
     blockCount: u32,
     missingBlocks: Vec<u32>,
-    owners: Vec<String>,
+    owner: String,
 }

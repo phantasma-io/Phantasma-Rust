@@ -1,11 +1,11 @@
 use crate::PhantasmaAPI::Account::Account;
 use reqwest::{self, Error};
-pub const apiURL: &str = "http://pharpc1.phantasma.io:7077/";
+pub const API_URL: &str = "http://pharpc1.phantasma.io:7077/";
 
-pub async fn getAccount(address: String) -> String {
-    let url = apiURL.to_string() + "api/v1/GetAccount?account=" + address.as_str();
+pub async fn get_account(address: String) -> String {
+    let url = API_URL.to_string() + "api/v1/GetAccount?account=" + address.as_str();
     println!("{}", url);
-    match httpGet(url).await {
+    match http_get(url).await {
         Ok(res) => {
             let account: Account = serde_json::from_str(&res).unwrap();
             println!("Body:\n{:#?}", account);
@@ -22,7 +22,7 @@ pub async fn getAccount(address: String) -> String {
     return "tes".to_string();
 }
 
-async fn httpGet(url: String) -> Result<String, Error> {
+async fn http_get(url: String) -> Result<String, Error> {
     println!("Making request: {}", url);
     let res = reqwest::get(url).await?.text().await?;
     println!("Body:\n{}", res);

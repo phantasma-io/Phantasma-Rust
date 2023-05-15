@@ -84,3 +84,27 @@ impl Address {
         return addr;
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_from_text() {
+        let text = "P2KFEyFevpQfSaW8G4VjSmhWUZXR4QrG9YQR1HbMpTUCpCL";
+        let mut address = Address::from_text(text);
+        assert_eq!(true, address.IsUser());
+        assert_eq!(false, address.IsSytem());
+        assert_eq!(false, address.IsInterop());
+        assert_eq!(text, address.Text.unwrap());
+    }
+
+    #[test]
+    fn test_from_key() {
+        let mut key = PhantasmaKeys::generate();
+        let mut address = Address::from_key(key);
+        assert_eq!(true, address.IsUser());
+        assert_eq!(false, address.IsSytem());
+        assert_eq!(false, address.IsInterop());
+    }
+}

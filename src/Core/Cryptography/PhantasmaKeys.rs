@@ -128,17 +128,14 @@ mod tests {
         let wif = "your_wif_string";
         let keys = PhantasmaKeys::from_wif(wif);
 
-        // Add assertions based on your actual PrivateKey and PublicKey
-        //assert_eq!(keys.private_key, vec![/* expected private key */]);
-        //assert_eq!(keys.public_key, vec![/* expected public key */]);
+        assert_eq!(keys.to_wif(), wif);
     }
 
     #[test]
     fn test_to_wif() {
-        //let private_key = vec![/* actual private key */];
-        //let keys = PhantasmaKeys::new(private_key);
-
-        //let wif = keys.to_wif();
-        //assert_eq!(wif, "your_expected_wif_string");
+        let wif = "your_wif_string";
+        let keys = PhantasmaKeys::generate();
+        println!("keys.to_wif() = {}", keys.to_wif());
+        //assert_eq!(keys.to_wif(), wif);
     }
 }

@@ -8,3 +8,18 @@ pub struct Storage {
     avatar: String,
     archives: Vec<Archive>,
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_storage() {
+        let storage = Storage {
+            available: 0,
+            used: 0,
+            avatar: String::from(""),
+            archives: vec![],
+        };
+    }
+}

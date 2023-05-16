@@ -2,6 +2,18 @@
 name = "Phantasma-Rust"
 version = "0.1.0"
 edition = "2021"
+authors = [
+    "João Novo <joao@phantasma.io>"
+]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/phantasma-io/Phantasma-Rust"
+homepage = "https://phantasma.io"
+keywords = ["phantasma", "blockchain", "rust", "sdk"]
+categories = ["blockchain", "sdk"]
+description = "Phantasma SDK for Rust"
+rust-version = "1.69.0"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
